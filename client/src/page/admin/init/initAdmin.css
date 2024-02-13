@@ -1,0 +1,117 @@
+
+.container-main{
+  width: 100%;
+  height: 100vh;
+  padding:10px;
+  background-image: linear-gradient(to right top, #051937, #001c4e, #001e65, #001d7a, #05178e);
+  color: white;
+}
+
+h1{
+  font-size: 1.6em;
+  font-weight: bold;
+  font-family: sans-serif;
+  text-align: center;
+  margin-top: 25px;
+}
+
+
+h2{
+  font-size: 1.2em;
+  font-weight: bold;
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.actions{
+  width: 100%;
+  padding:10px;
+  margin-top: 12vh;
+
+}
+
+.actions button{
+width: 100%;
+padding: 25px 0;
+background-color: transparent;
+border: 2px solid white;
+border-radius: 15px;
+margin: 15px 0;
+color:white;
+font-size: 1.2em;
+font-weight: bolder;
+}
+
+
+.modalNewPlay {
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 1);
+  z-index: 1;
+  position:absolute;
+  flex-wrap: wrap;
+  background-image: linear-gradient(to right top, #051937, #001c4e, #001e65, #001d7a, #05178e);
+
+}
+
+.head-modalnewplay{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 30px;
+  font-size: 1.6em;
+  color: white
+}
+
+.head-modalnewplay p{
+  color:red;
+  font-family: sans-serif;
+  font-weight: bolder;
+}
+
+.info-teams{
+  margin-top: -30vh;
+  width: 100%;
+  padding:15px;
+
+}
+
+.info-teams fieldset{
+width: 100%;
+border:none;
+margin-bottom: 15px;
+
+}
+
+.info-teams fieldset:last-child{
+  display: flex;
+  justify-content: end;
+}
+
+
+.info-teams label{
+  width: 100%;
+  color:white
+  }
+
+  
+.info-teams input{
+  width: 100%;
+  height: 45px;
+  padding: 0 10px;
+  outline: none; 
+  }
+
+  .info-teams button{
+    margin: 0 5px;
+    padding:10px 15px;
+    background-color: greenyellow;
+
+    border:none
+  }
+
+  .info-teams button:first-child{
+    background-color: brown;
+    color:white
+
+  }
