@@ -1,0 +1,2 @@
+cd ./server
+yarn dev

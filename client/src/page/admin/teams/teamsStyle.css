@@ -1,0 +1,50 @@
+.container-teams{
+  width: 100%;
+  height: 100vh;
+  background-image: linear-gradient(to right top, #051937, #001c4e, #001e65, #001d7a, #05178e);
+} 
+
+.title{
+  text-align: center;
+  color: white;
+  font-size: 1.7em;
+  font-weight: bold;
+  padding: 15px;
+  position:relative;
+}
+
+.teams-table{
+  width: 97%;
+  border:1px solid white;
+  border-radius: 10px;
+  height: 75vh;
+  margin:0 auto;
+  color:white;
+  text-align: center;
+  overflow-y: auto;
+}
+.teams-tr{
+  font-size: 1.4em;
+  padding:10px 0;
+}
+.btn-add{
+  display: block;
+  width: 60%;
+  margin: 1.2rem auto;
+  border-radius: 0.5rem;
+  padding: 1rem 0;
+  border: 0.15rem solid white;
+  background-color: transparent;
+  color: white;
+}
+
+.back{
+  position: absolute;
+  right: 1rem;
+  font-size: 1rem;
+}
+
+.back .link{
+  color: white;
+  text-decoration: none;
+}

@@ -3,12 +3,15 @@ import http from "http";
 import cors from "cors";
 import socketio from "socket.io";
 import Connections from "./connections";
+import { resolve } from "path";
 const app = express();
 const server = http.createServer(app);
 const io = new socketio.Server(server, { cors: { origin: "*" } });
 const PORT = 3000;
 
 app.use(cors());
+
+app.use("/static", express.static("./src/imgs"));
 
 io.on("connection", (socket) => {
   Connections.forEach((conn) => {

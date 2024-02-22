@@ -9,22 +9,23 @@
     <h2>Sistema de transmissão remoto</h2>
 
     <section class="actions">
-      <button @click="handleNewPlay">Iniciar Jogo</button>
-      <button>Ver Histórico</button>
+      <button @click="handleNewPlay">Novo Jogo</button>
+      <button>Histórico</button>
+      <button>
+        <router-link to="/admin/teams" class="link"> Times </router-link>
+      </button>
       <button>Partida Atual</button>
     </section>
   </main>
 </template>
 
 <script lang="ts" setup>
-import {reactive} from 'vue'
-import modalNewPlay from '@/components/modals/modalNewPlay.vue';
+import { reactive } from "vue";
+import modalNewPlay from "@/components/modals/modalNewPlay.vue";
 
+const style = reactive<{ display: string }>({ display: "none" });
 
-const style = reactive<{display:string}>({display: 'none'})
-
-function handleNewPlay(){
-  style.display = 'flex'
+function handleNewPlay() {
+  style.display = "flex";
 }
-
 </script>

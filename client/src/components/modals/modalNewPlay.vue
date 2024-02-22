@@ -23,6 +23,16 @@
         <button @click="submitTeamsName">Iniciar</button>
       </fieldset>
     </article>
+
+    <div class="select-team">
+      <div
+        v-for="t in findAll.teams"
+        :key="t.name"
+        @click="() => handleSelectTeam(t.name)"
+      >
+        {{ t.name }}
+      </div>
+    </div>
   </section>
 </template>
 
@@ -40,13 +50,30 @@ const teams = reactive<{
   two: "",
 });
 
+const findAll = reactive<{ teams: { name: string; cover: string }[] }>({
+  teams: [],
+});
+
 const router = useRouter();
 
 socket.on("start-play", () => {
   setTimeout(() => {
-    router.push("/adm/jogo");
+    router.push("/admin/jogo");
   }, 1000);
 });
+
+socket.emit("teams/findAll", null);
+
+socket.on("teams/findAll", (data: { name: string; cover: string }[]) => {
+  console.log(data);
+  findAll.teams = data;
+});
+
+function handleSelectTeam(name: string) {
+  if (teams.one == "" && teams.two != name) teams.one = name;
+  else if (teams.two == "" && teams.one != name) teams.two = name;
+  else alert("O time esta repetido ou os dois já estão selecionados!");
+}
 
 function closedModal() {
   styleDisplay.display = "none";
