@@ -18,9 +18,9 @@ export function _timer_paused(timer: iTimer) {
   });
 }
 
-export function _timer_reset(timer: iTimer, style: { display: string }) {
+export function _timer_reset(timer: iTimer, style: { display?: string }) {
   socket.on("reset-timer", (data: { timer: { min: number; sec: number } }) => {
     resolveSetTimer(timer, { ...data.timer, start: false });
-    style.display = "none";
+    if (style.display) style.display = "none";
   });
 }

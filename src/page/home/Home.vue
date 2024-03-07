@@ -37,6 +37,12 @@
 import { socket } from "../../config/socket";
 import { onMounted, reactive } from "vue";
 import FXGOL from "../../assets/gol.mp3";
+import {
+  _timer_paused,
+  _timer_reset,
+  _timer_start,
+} from "@/connections/_timer";
+import { iTimer } from "@/functions/Timer";
 
 // import imgLogo from "@/assets/logo.jpg";
 
@@ -54,9 +60,10 @@ const team = reactive({
 const storage = reactive<any>(
   `${import.meta.env.VITE_HOST_SERVER}static/teams/`
 );
-const timer = reactive({
+const timer = reactive<iTimer>({
   min: 0,
   sec: 0,
+  start: false,
 });
 
 const half = reactive<{ time: number }>({
@@ -65,25 +72,13 @@ const half = reactive<{ time: number }>({
 
 function resolve_img(name: string) {
   const key = name.split(" ").join("_").toLowerCase();
-  console.log(storage + key + ".png");
   return storage + key + ".png";
 }
 
 onMounted(() => {
-  function resolveTimer({ min, sec }: { min: number; sec: number }) {
-    timer.min = min;
-    timer.sec = sec;
-  }
-
-  socket.on("start-timer", (data: { timer: { min: number; sec: number } }) =>
-    resolveTimer(data.timer)
-  );
-  socket.on("paused-timer", (data: { timer: { min: number; sec: number } }) =>
-    resolveTimer(data.timer)
-  );
-  socket.on("reset-timer", (data: { timer: { min: number; sec: number } }) =>
-    resolveTimer(data.timer)
-  );
+  _timer_start(timer);
+  _timer_paused(timer);
+  _timer_reset(timer, {});
 
   socket.emit("info-playing", null);
 
