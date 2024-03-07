@@ -16,10 +16,18 @@
         {{ team.two.name }}
         <img :src="resolve_img(team.two.name)" alt="" />
       </article>
+
+      <!-- <div class="half">
+       
+      </div> -->
+
       <div class="timer">
-        {{ timer.min < 10 ? `0${timer.min}` : timer.min }}:{{
-          timer.sec < 10 ? `0${timer.sec}` : timer.sec
-        }}
+        <p class="half">{{ half.time }}º</p>
+        <p>
+          {{ timer.min < 10 ? `0${timer.min}` : timer.min }}:{{
+            timer.sec < 10 ? `0${timer.sec}` : timer.sec
+          }}
+        </p>
       </div>
     </section>
   </main>
@@ -49,6 +57,10 @@ const storage = reactive<any>(
 const timer = reactive({
   min: 0,
   sec: 0,
+});
+
+const half = reactive<{ time: number }>({
+  time: 1,
 });
 
 function resolve_img(name: string) {
@@ -88,6 +100,9 @@ onMounted(() => {
   socket.on("sound/gol", () => {
     const gol = new Audio(FXGOL);
     gol.play();
+  });
+  socket.on("time/change", (data) => {
+    half.time = data;
   });
 });
 </script>

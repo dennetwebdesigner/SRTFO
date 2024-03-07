@@ -61,7 +61,7 @@
   width: 32%;
   justify-content: center;
   padding: 10px 0;
-  margin: 20px 60px;
+  margin: 20px 60px 0;
   font-weight: bold;
   color: white;
   -webkit-box-shadow: 8px 8px 5px 0px rgba(0, 0, 0, 0.4);
@@ -99,7 +99,7 @@
   position: absolute;
   background-color: black;
   color: white;
-  top: 90%;
+  top: 60%;
   text-align: center;
   width: 30%;
   font-size: 1.3em;

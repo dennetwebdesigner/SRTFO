@@ -24,7 +24,10 @@
     </section>
     <div class="opt-temp">
       <button @click="start_goal_sound">GOL</button>
-      <router-link to="/admin" class="back">Voltar Menu</router-link>
+      <button @click="change_time">{{ half.time }}º tempo - Mudar</button>
+      <button class="btn-menu-back">
+        <router-link to="/admin" class="menu-back">Voltar Menu</router-link>
+      </button>
     </div>
   </main>
 </template>
@@ -71,12 +74,20 @@ const timer = reactive<{ min: number; sec: number; start: Boolean }>({
   start: false,
 });
 
+const half = reactive({
+  time: 1,
+});
+
 function askReset() {
   style.display = "flex";
 }
 
 function start_goal_sound() {
   socket.emit("sound/gol", null);
+}
+
+function change_time() {
+  socket.emit("time/change", half.time == 1 ? 2 : 1);
 }
 
 onMounted(() => {
@@ -97,5 +108,8 @@ onMounted(() => {
   _timer_start(timer);
   _timer_paused(timer);
   _timer_reset(timer, style);
+  socket.on("time/change", (data) => {
+    half.time = data;
+  });
 });
 </script>
