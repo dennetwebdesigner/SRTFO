@@ -1,0 +1,185 @@
+.container-admin {
+  background-image: linear-gradient(
+    to right top,
+    #051937,
+    #001c4e,
+    #001e65,
+    #001d7a,
+    #05178e
+  );
+  width: 100%;
+  height: 100vh;
+  padding-top: 0.8rem;
+}
+
+.placar {
+  display: flex;
+  width: 95%;
+  justify-content: center;
+  padding: 1rem 0;
+  flex-wrap: wrap;
+  justify-content: center;
+  border: 1px solid white;
+  border-radius: 0.5rem;
+  margin: 0 auto;
+}
+
+.placar article {
+  font-size: 1.5em;
+  color: white;
+  width: 100%;
+  text-align: center;
+}
+
+.placar article span {
+  margin: 0 10px;
+}
+
+.change-score {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  padding: 10px 0;
+  flex-wrap: wrap;
+  padding: 1rem 20px;
+  justify-content: space-between;
+}
+
+.change-score fieldset {
+  width: 45%;
+  border: none;
+  margin-bottom: 5px;
+}
+
+.change-score h2 {
+  width: 100%;
+  color: white;
+  text-align: center;
+  margin: 0.5rem 0;
+}
+
+.change-score label {
+  color: white;
+}
+
+.change-score input {
+  height: 45px;
+  font-size: 1.5em;
+  width: 100%;
+  outline: none;
+  padding: 0.5rem;
+}
+
+.change-score button {
+  width: 100%;
+  height: 45px;
+  margin-top: 15px;
+  background-color: transparent;
+  border: 1px solid white;
+  border-radius: 0.8rem;
+  color: white;
+  font-weight: bolder;
+}
+
+.timer {
+  display: flex;
+  align-items: center;
+  width: 95%;
+  margin: 1rem auto 0;
+  font-size: 1.5em;
+  font-weight: bold;
+  justify-content: center;
+  flex-wrap: wrap;
+  border: 0.1rem solid white;
+  border-radius: 0.5rem;
+}
+
+.timer h2 {
+  width: 100%;
+  font-size: 1em;
+  color: white;
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.timer div {
+  margin: 20px;
+  color: white;
+}
+
+.timer button {
+  height: 35px;
+  font-size: 0.7em;
+  padding: 0 15px;
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+  margin: 0 4px;
+  border-radius: 5px;
+}
+
+.timer button:last-child {
+  color: rgb(255, 0, 0);
+  font-weight: bold;
+}
+
+.resetTimerModal {
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.9);
+  z-index: 1;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+}
+
+.resetTimerModal h2 {
+  text-align: center;
+  width: 100%;
+}
+
+.resetTimerModal section {
+  width: 100%;
+  text-align: right;
+}
+
+.resetTimerModal section button {
+  margin: 15px 5px;
+  padding: 15px 25px;
+  border: none;
+  background-color: #23cf5c;
+  color: white;
+  box-shadow: 1px 1px 3px black;
+  font-weight: bold;
+}
+
+.resetTimerModal section button:last-child {
+  background-color: #d12c38;
+  color: white;
+  margin-right: 40px;
+}
+.opt-temp {
+  display: flex;
+  width: 100%;
+  padding: 1rem;
+  justify-content: space-between;
+}
+
+.opt-temp button {
+  background-color: transparent;
+  color: white;
+  border: 0.1rem solid white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.4rem;
+}
+
+.back {
+  color: white;
+  text-align: center;
+  display: block;
+  padding: 1rem 0;
+  font-size: 1em;
+  text-decoration: none;
+}
