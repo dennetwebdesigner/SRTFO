@@ -72,7 +72,7 @@
 
 .placar-home img {
   position: absolute;
-  width: 4rem;
+  width: 3rem;
   height: 4rem;
   top: -1rem;
 }
@@ -84,11 +84,11 @@
 }
 
 .placar-home .team-one img {
-  left: -50%;
+  left: calc(0% - 3rem);
 }
 
 .placar-home .team-two img {
-  right: -60%;
+  right: calc(0% - 3rem);
 }
 
 .placar-home article span {

@@ -23,7 +23,7 @@
   margin-top: 30px;
   font-size: 1.6em;
   color: white;
-  height: 20vh;
+  height: 10rem;
 }
 
 .head-modalnewplay p {
@@ -36,7 +36,7 @@
   margin-top: -20vh;
   width: 100%;
   padding: 15px;
-  height: 50vh;
+  height: 15rem;
 }
 
 .info-teams fieldset {
@@ -82,11 +82,12 @@
 
 .select-team {
   width: 95%;
-  margin: -40vh auto 0;
+  margin: 0 auto 0;
   border: 1 solid white;
   background-color: white;
   overflow-y: auto;
-  height: 40vh;
+  height: 20rem;
+  display: block;
 }
 
 .select-team div {
@@ -159,7 +160,12 @@ socket.on("start-play", () => {
 socket.emit("teams/findAll", null);
 
 socket.on("teams/findAll", (data: { name: string; cover: string }[]) => {
-  findAll.teams = data;
+  console.log(data);
+  findAll.teams = Object.values(data).sort((a, b) => {
+    if (a.name > b.name) return 1;
+    else if (a.name < b.name) return -1;
+    else return 0;
+  });
 });
 
 function handleSelectTeam(name: string) {
