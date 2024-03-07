@@ -84,11 +84,11 @@
 }
 
 .placar-home .team-one img {
-  left: calc(0% - 3rem);
+  left: calc(0% - 4rem);
 }
 
 .placar-home .team-two img {
-  right: calc(0% - 3rem);
+  right: calc(0% - 4rem);
 }
 
 .placar-home article span {

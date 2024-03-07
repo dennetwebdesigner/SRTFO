@@ -2,10 +2,10 @@
 @import "./teamsStyle.css";
 .link-back {
   position: absolute;
-  top: -2rem;
-  left: 2rem;
+  right: 1rem;
+  top: 0.4rem;
   color: white;
-  font-size: 0.3em;
+  font-size: 1em;
 }
 </style>
 <template>
