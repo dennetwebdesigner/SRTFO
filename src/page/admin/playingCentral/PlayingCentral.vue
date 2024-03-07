@@ -34,7 +34,6 @@ import { reactive, onMounted } from "vue";
 import ScoreBoard from "@/components/admin/Scoreboard.vue";
 import modalResetTimer from "@/components/modals/modalResetTimer.vue";
 import Changescore from "@/components/admin/Changescore.vue";
-import FXGOL from "../../../assets/gol.mp3";
 import { socket } from "@/config/socket";
 import {
   _timer_start,
@@ -77,8 +76,7 @@ function askReset() {
 }
 
 function start_goal_sound() {
-  const gol = new Audio(FXGOL);
-  gol.play();
+  socket.emit("sound/gol", null);
 }
 
 onMounted(() => {

@@ -28,8 +28,9 @@
 <script lang="ts" setup>
 import { socket } from "../../config/socket";
 import { onMounted, reactive } from "vue";
+import FXGOL from "../../assets/gol.mp3";
+
 // import imgLogo from "@/assets/logo.jpg";
-// import sounGol from "../../assets/gol.mp3";
 
 const team = reactive({
   one: {
@@ -72,6 +73,7 @@ onMounted(() => {
   );
 
   socket.emit("info-playing", null);
+
   socket.on("info-playing", (data) => {
     team.one = data.one;
     team.two = data.two;
@@ -80,6 +82,11 @@ onMounted(() => {
   socket.on("change-score", (data) => {
     team.one.score = data.one.score;
     team.two.score = data.two.score;
+  });
+
+  socket.on("sound/gol", () => {
+    const gol = new Audio(FXGOL);
+    gol.play();
   });
 });
 </script>
