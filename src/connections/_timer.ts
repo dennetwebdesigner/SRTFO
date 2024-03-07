@@ -24,3 +24,9 @@ export function _timer_reset(timer: iTimer, style: { display?: string }) {
     if (style.display) style.display = "none";
   });
 }
+
+export function _change_half_time(half: { time: number }) {
+  socket.on("time/change", (data: number) => {
+    half.time = data;
+  });
+}

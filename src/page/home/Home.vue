@@ -36,17 +36,20 @@
 <script lang="ts" setup>
 import { socket } from "../../config/socket";
 import { onMounted, reactive } from "vue";
-import FXGOL from "../../assets/gol.mp3";
 import {
+  _change_half_time,
   _timer_paused,
   _timer_reset,
   _timer_start,
 } from "@/connections/_timer";
 import { iTimer } from "@/functions/Timer";
+import { _info_playing, _score_change, iTeams } from "@/connections/_play";
+import { resolve_img } from "@/functions/play";
+import { _sound_goal } from "@/connections/_sound_fx";
 
 // import imgLogo from "@/assets/logo.jpg";
 
-const team = reactive({
+const team = reactive<iTeams>({
   one: {
     name: "",
     score: 0,
@@ -57,9 +60,6 @@ const team = reactive({
   },
 });
 
-const storage = reactive<any>(
-  `${import.meta.env.VITE_HOST_SERVER}static/teams/`
-);
 const timer = reactive<iTimer>({
   min: 0,
   sec: 0,
@@ -70,34 +70,15 @@ const half = reactive<{ time: number }>({
   time: 1,
 });
 
-function resolve_img(name: string) {
-  const key = name.split(" ").join("_").toLowerCase();
-  return storage + key + ".png";
-}
-
 onMounted(() => {
   _timer_start(timer);
   _timer_paused(timer);
   _timer_reset(timer, {});
+  _change_half_time(half);
 
-  socket.emit("info-playing", null);
+  _info_playing(team);
+  _score_change(team);
 
-  socket.on("info-playing", (data) => {
-    team.one = data.one;
-    team.two = data.two;
-  });
-
-  socket.on("change-score", (data) => {
-    team.one.score = data.one.score;
-    team.two.score = data.two.score;
-  });
-
-  socket.on("sound/gol", () => {
-    const gol = new Audio(FXGOL);
-    gol.play();
-  });
-  socket.on("time/change", (data) => {
-    half.time = data;
-  });
+  _sound_goal();
 });
 </script>
