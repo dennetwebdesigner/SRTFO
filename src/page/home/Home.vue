@@ -53,6 +53,7 @@ const timer = reactive({
 
 function resolve_img(name: string) {
   const key = name.split(" ").join("_").toLowerCase();
+  console.log(storage + key + ".png");
   return storage + key + ".png";
 }
 
