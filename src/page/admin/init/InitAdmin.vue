@@ -12,10 +12,14 @@
       <button @click="handleNewPlay">Novo Jogo</button>
       <button>Histórico</button>
       <button>
-        <router-link to="/admin/teams" class="link"> Times </router-link>
+        <router-link to="/admin/teams" class="link-init-play">
+          Times
+        </router-link>
       </button>
       <button>
-        <router-link to="/admin/jogo" class="link"> Partida Atual </router-link>
+        <router-link to="/admin/jogo" class="link-init-play">
+          Partida Atual
+        </router-link>
       </button>
     </section>
   </main>
