@@ -1,11 +1,13 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Home from "./page/home/Home.vue";
+import Login from "./page/admin/login/Login.vue";
 import PlayingCentral from "@/page/admin/playingCentral/PlayingCentral.vue";
 import InitAdmin from "@/page/admin/init/InitAdmin.vue";
 import TeamsContainer from "@/page/admin/teams/TeamsContainer.vue";
 import Teams from "@/page/admin/teams/Teams.vue";
 const routes = [
   { path: "/", component: Home },
+  { path: "/login", component: Login },
   { path: "/admin", component: InitAdmin },
   { path: "/admin/jogo", component: PlayingCentral },
   {
