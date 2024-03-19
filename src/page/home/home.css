@@ -58,10 +58,10 @@
 .placar-home {
   display: flex;
   background-color: rgb(10, 93, 202);
-  width: 32%;
-  justify-content: center;
-  padding: 10px 0;
+  width: 33%;
   margin: 20px 60px 0;
+  padding: 0.4rem 0;
+  justify-content: center;
   font-weight: bold;
   color: white;
   -webkit-box-shadow: 8px 8px 5px 0px rgba(0, 0, 0, 0.4);
@@ -79,7 +79,7 @@
 
 .placar-home article {
   margin: 0 10px;
-  font-size: 1.6em;
+  font-size: 1.2em;
   position: relative;
 }
 
@@ -99,10 +99,53 @@
   position: absolute;
   background-color: black;
   color: white;
-  top: 60%;
+  top: 50%;
   text-align: center;
   width: 30%;
   font-size: 1.3em;
   font-weight: bold;
   padding: 5px;
+}
+
+.half {
+  font-size: 1em;
+}
+
+@media screen and (max-width: 677px) {
+  .container-obs {
+  }
+  .placar-home {
+    width: 100%;
+    margin: 0;
+    text-align: center;
+    flex-wrap: wrap;
+  }
+  .placar-home article {
+    width: 100%;
+  }
+
+  .placar-home .team-one img {
+    left: 0;
+    display: none;
+  }
+
+  .placar-home .team-two {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+  }
+
+  .placar-home .team-two img {
+    right: 0;
+    display: none;
+  }
+
+  .placar-home .timer {
+    width: 100%;
+    top: 101%;
+    border-radius: 0;
+    border: none;
+    margin: 0;
+    padding: 0;
+  }
 }
