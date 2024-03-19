@@ -30,11 +30,11 @@
         </p>
       </div>
     </section>
+    <PanelStatistic />
   </main>
 </template>
 
 <script lang="ts" setup>
-import { socket } from "../../config/socket";
 import { onMounted, reactive } from "vue";
 import {
   _change_half_time,
@@ -46,6 +46,7 @@ import { iTimer } from "@/functions/Timer";
 import { _info_playing, _score_change, iTeams } from "@/connections/_play";
 import { resolve_img } from "@/functions/play";
 import { _sound_goal } from "@/connections/_sound_fx";
+import PanelStatistic from "@/components/PanelStatistic/PanelStatistic.vue";
 
 // import imgLogo from "@/assets/logo.jpg";
 
