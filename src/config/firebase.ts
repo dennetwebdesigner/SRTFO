@@ -51,7 +51,7 @@ export function validate_token(router: Function) {
 export function logout_auth() {
   signOut(auth)
     .then(() => {})
-    .catch((error) => {
+    .catch(() => {
       alert("Houve um erro, tente novamente mais tarde!");
     });
 }
