@@ -29,7 +29,6 @@ export function login_auth(email: string, password: string) {
       window.location.href = "/admin";
     })
     .catch((error) => {
-      const errorCode = error.code;
       const errorMessage = error.message;
       console.log(errorMessage);
     });
