@@ -192,3 +192,106 @@
   text-align: center;
   background-color: black;
 }
+
+.menu-opt {
+  position: absolute;
+  top: 0.1em;
+  right: 0.5rem;
+  background-color: #05178e;
+  padding: 0.3rem;
+  font-size: 2rem;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+}
+
+.icon-menu {
+  font-weight: 450;
+  color: white;
+}
+
+.container-menu-opt {
+  width: 68%;
+  background-color: #05178e;
+  border: 1px solid white;
+  position: absolute;
+  right: -100%;
+  top: 0;
+  height: 100vh;
+  color: white;
+  text-align: center;
+  overflow-y: auto;
+  transition: 0.5s;
+}
+
+.close-menu-opt {
+  position: absolute;
+  right: 1.5rem;
+  top: 0rem;
+  font-family: sans-serif;
+  font-size: 2rem;
+  color: red;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+}
+
+.container-menu-opt h4 {
+  font-size: 1.5rem;
+  padding-top: 0.5rem;
+}
+
+.menu-opt-team {
+  width: 100%;
+  padding: 0.5rem 0.3rem;
+}
+
+.menu-opt-team h5 {
+  margin: 0.5rem 0 0;
+  font-size: 2rem;
+  font-family: sans-serif;
+  font-weight: lighter;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+}
+
+.menu-opt-hide {
+  display: none;
+  transition: 0.5s;
+  animation-name: opt_fade_out;
+  animation-duration: 0.5s;
+  opacity: 0;
+}
+
+.menu-opt-show {
+  display: block;
+  transition: 0.5s;
+  animation-name: opt_fade_in;
+  animation-duration: 0.5s;
+}
+
+@keyframes opt_fade_in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes opt_fade_out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.menu-opt-team p {
+  margin: 0.5rem 0;
+  border: 1px solid white;
+  padding: 0.6rem 0;
+  border-radius: 0.3rem;
+}

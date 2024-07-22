@@ -7,11 +7,19 @@
     <h2>Alterar Placar</h2>
     <fieldset>
       <label>{{ teams.one.name }}</label>
-      <input type="number" v-model="teamChangeScore.one.score" />
+      <input
+        type="number"
+        v-model="teamChangeScore.one.score"
+        :style="{ backgroundColor: 'white' }"
+      />
     </fieldset>
     <fieldset>
       <label>{{ teams.two.name }}</label>
-      <input type="number" v-model="teamChangeScore.two.score" />
+      <input
+        type="number"
+        v-model="teamChangeScore.two.score"
+        :style="{ backgroundColor: 'white' }"
+      />
     </fieldset>
     <button @click="handleSendScore">Salvar</button>
   </section>

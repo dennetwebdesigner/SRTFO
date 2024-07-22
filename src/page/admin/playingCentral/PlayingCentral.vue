@@ -8,6 +8,37 @@
     v-on:modal-close="(e) => (style.display = e)"
   />
   <main class="container-admin">
+    <div class="menu-opt" @click="() => open_menu_opt(true)">
+      <i class="pi pi-align-justify icon-menu"></i>
+    </div>
+    <div class="container-menu-opt" ref="menu_opt_container">
+      <h4>Opções</h4>
+      <div @click="() => open_menu_opt(false)" class="close-menu-opt">x</div>
+      <div class="menu-opt-team">
+        <h5 @click="() => menu_opt_players(1)">Time 1</h5>
+        <div ref="menu_opt_team1" class="menu-opt-hide">
+          <p>Jogador 1</p>
+          <p>Jogador 2</p>
+          <p>Jogador 3</p>
+          <p>Jogador 4</p>
+          <p>Jogador 5</p>
+          <p>Jogador 6</p>
+          <p>Jogador 7</p>
+        </div>
+      </div>
+      <div class="menu-opt-team">
+        <h5 @click="() => menu_opt_players(2)">Time 2</h5>
+        <div ref="menu_opt_team2" class="menu-opt-hide">
+          <p>Jogador 1</p>
+          <p>Jogador 2</p>
+          <p>Jogador 3</p>
+          <p>Jogador 4</p>
+          <p>Jogador 5</p>
+          <p>Jogador 6</p>
+          <p>Jogador 7</p>
+        </div>
+      </div>
+    </div>
     <ScoreBoard :teams="teams" />
     <Changescore :teams="teams" />
 
@@ -33,7 +64,7 @@
 </template>
 
 <script lang="ts" setup>
-import { reactive, onMounted } from "vue";
+import { reactive, onMounted, ref } from "vue";
 import ScoreBoard from "@/components/admin/Scoreboard.vue";
 import modalResetTimer from "@/components/modals/modalResetTimer.vue";
 import Changescore from "@/components/admin/Changescore.vue";
@@ -44,6 +75,7 @@ import {
   _timer_reset,
   _timer_toggle,
 } from "@/connections/_timer";
+
 const teams = reactive<{
   one: {
     name: string;
@@ -77,6 +109,10 @@ const timer = reactive<{ min: number; sec: number; start: Boolean }>({
 const half = reactive({
   time: 1,
 });
+
+const menu_opt_container = ref();
+const menu_opt_team1 = ref();
+const menu_opt_team2 = ref();
 
 function askReset() {
   style.display = "flex";
@@ -112,4 +148,20 @@ onMounted(() => {
     half.time = data;
   });
 });
+
+function open_menu_opt(e: Boolean) {
+  if (e) menu_opt_container.value.style.right = 0;
+  else menu_opt_container.value.style.right = "-100%";
+}
+
+function menu_opt_players(n: number) {
+  const team = n == 1 ? menu_opt_team1 : menu_opt_team2;
+  if (team.value.classList.contains("menu-opt-hide")) {
+    team.value.classList.remove("menu-opt-hide");
+    team.value.classList.add("menu-opt-show");
+  } else {
+    team.value.classList.remove("menu-opt-show");
+    team.value.classList.add("menu-opt-hide");
+  }
+}
 </script>
